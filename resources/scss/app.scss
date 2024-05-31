@@ -18,44 +18,40 @@ $fa-font-path: "../webfonts" !default;
         height: 90px;
         background-color: black;
         color: white;
+        display: flex;
+        align-items: center;
+        padding-left: 10px;
     }
 
     #wrapper {
         width: 100%;
         height: calc(100% - 90px);
         display: flex;
-        
 
         #sidebar {
             width: 150px;
             height: 100%;
             background-color: grey;
 
-            .ulSide{
-                padding: 0px;
-               
-                
-                li{
-                    width: 100%;
-                    padding:10px;
-                    border: 1px solid black;
+            .ulSide {
+                width: 100%;
 
-                    &:hover{
+                a {
+                    text-decoration: none;
+                    color: black;
+                    font-size: 1.3rem;
+
+                    width: 100%;
+                    text-align: start;
+
+                    &:hover {
                         background-color: white;
                     }
-
-                    a{
-                        text-decoration: none;
-                        color: black;
-                        font-size: 1.3rem;
-                    }
                 }
-
             }
-            
         }
 
-        #main{
+        #main {
             width: calc(100% - 150px);
             height: 100%;
             background-color: rgba(151, 148, 148, 0.529);

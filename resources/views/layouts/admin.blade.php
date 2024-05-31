@@ -26,13 +26,10 @@
 
         <div id="wrapper">
             <div id="sidebar">
-                <ul class="ulSide">
-                    <li class="list-group-item"><a class="text-decoration-none text-black" href="{{ route('admin.dashboard')}}">Dashboard</a></li>
-                    <li li class="list-group-item"><a class="text-decoration-none text-black" href="{{ route('admin.project.index')}}">Project</a></li>
-                </ul>
-
-
-
+                <div class="ulSide">
+                   <a class="btn " href="{{ route('admin.dashboard')}}">Dashboard</a>
+                   <a class="btn " href="{{ route('admin.project.index')}}">Project</a>
+                </div>
             </div>
             <main id="main">
                 @yield('content')
