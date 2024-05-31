@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
 
 
 @section('content')
 
-<div class="content">
+<div class="content p-5">
   <div class="container">
     <table class="table table-success table-striped">
       <thead>
