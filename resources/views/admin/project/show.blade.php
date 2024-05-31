@@ -1,16 +1,16 @@
 @extends('layouts.app')
 @section('content')
 
-<div id="show_single" class="container">
+<div id="" class="container">
 
-  <h1 class="text-truncate text-uppercase text-white text-center p-3 ">{{ $project->title }}</h1>
-  <div class="w-100 d-flex justify-content-center">
+  <h1 class="text-truncate text-uppercase text-center p-3 ">{{ $project->title }}</h1>
+  <!-- <div class="w-100 d-flex justify-content-center">
     <img src="{{ $project->thumb }}" class=" w-50 m-auto" alt="{{ $project->title }}">
-  </div>
+  </div> -->
 
-  <div class="text-white fs-3 py-4">{{ $project->content }}</div>
+  <div class="fs-3 py-4">{{ $project->content }}</div>
 
-  <div class="text-white fs-3 py-4">Price: {{ $project->price }}</div>
+  <div class=" fs-3 py-4">Status: {{ $project->status }}</div>
 
   <div class="d-flex justify-content-start py-2">
     <button class="btn btn-primary h-25"><a class="text-decoration-none text-white" href="{{route('admin.project.edit', $project->id)}}">Modifica</a></button>
@@ -18,7 +18,7 @@
     <form action="{{ route('admin.project.destroy', $project->id) }}" method="POST">
       @csrf
       @method('DELETE')
-      <input id="deleteproject" type="submit" value="Elimina" class="btn btn-danger ms-3">
+      <input id="deleteProject" type="submit" value="Elimina" class="btn btn-danger ms-3">
     </form>
 
   </div>

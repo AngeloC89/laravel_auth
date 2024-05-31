@@ -39,6 +39,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
+        
         return view('admin.project.show', compact('project'));
     }
 
@@ -63,6 +64,8 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        $project->delete();
+        return redirect()->route("admin.project.index")->with('message', "La card $project->title è stata eliminata");
+   
     }
 }
