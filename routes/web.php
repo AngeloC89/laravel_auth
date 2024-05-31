@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\admin\PortfolioController;
+use App\Http\Controllers\admin\ProjectController;
 
 
 /*
@@ -22,7 +22,7 @@ Route::get('/',[HomeController::class, 'index'])->name('home');
 
 Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-    Route::resource('/portfolio', PortfolioController::class);
+    Route::resource('/project', ProjectController::class);
 //...
 });
 

@@ -12,16 +12,17 @@
           <th scope="col">Title</th>
           <th scope="col">Content</th>
           <th scope="col">Status</th>
+          <th scope="col">Links</th>
         </tr>
       </thead>
 
       <tbody>
-        @foreach ($portfolios as $portfolio)
+        @foreach ($projects as $project)
           <tr>
-            <th scope="row"><a href="">{{$portfolio->title}}</a></th>
-            <td>{{$portfolio->content}}</td>
-            <td>{{$portfolio->status}}</td>
-            <td><a href="" class="btn btn-primary">Show</a></td>
+            <th scope="row">{{$project->title}}</th>
+            <td>{{$project->content}}</td>
+            <td>{{$project->status}}</td>
+            <td><a href="{{ route('admin.project.show', $project->id) }}" class="btn btn-primary">Show</a></td>
           </tr>
         @endforeach
       </tbody>
