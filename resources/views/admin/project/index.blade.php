@@ -4,7 +4,8 @@
 
 @section('content')
 <div id="tableIndex">
-  <div class="d-flex justify-content-end align-items-center p-4 container">
+  <div class="d-flex justify-content-between align-items-center p-4 container">
+    <h2>Table of projects</h2>
     <a class="btn btn-primary" href="{{route('admin.project.create')}}">Aggiungi</a>
   </div>
 

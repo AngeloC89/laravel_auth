@@ -1,12 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
 
-<div id="" class="container">
+<div id="showProject" class="container">
 
-  <h1 class="text-truncate text-uppercase text-center p-3 ">{{ $project->title }}</h1>
-  <!-- <div class="w-100 d-flex justify-content-center">
-    <img src="{{ $project->thumb }}" class=" w-50 m-auto" alt="{{ $project->title }}">
-  </div> -->
+  <h1 class=" text-uppercase py-3 ">{{ $project->title }}</h1>
 
   <div class="fs-3 py-4">{{ $project->content }}</div>
 
