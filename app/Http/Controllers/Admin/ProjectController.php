@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Project;
 use Illuminate\Http\Request;
+use App\Http\Requests\UpdateProjectRequest;
+use App\Http\Requests\StoreProjectRequest;
 
 
 class ProjectController extends Controller
@@ -29,7 +31,7 @@ class ProjectController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreProjectRequest $request)
     {
         //
     }
@@ -54,9 +56,17 @@ class ProjectController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Project $project)
+    public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+       
+        $form_data = $request->validated();
+
+        $project->title = $form_data['title'];
+        $project->content = $form_data['content'];
+        $project->status = $form_data['status'];
+        $project->update();
+        return redirect()->route('admin.project.index', $project->slug);
+
     }
 
     /**
@@ -65,7 +75,7 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         $project->delete();
-        return redirect()->route("admin.project.index")->with('message', "La card $project->title è stata eliminata");
+        return redirect()->route("admin.project.index")->with('message', "The project $project->title has been deleted");
    
     }
 }

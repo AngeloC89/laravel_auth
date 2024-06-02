@@ -2,7 +2,7 @@
 @section('content')
 
 
-<
+
 <section class="container p-5">
 
     <form action="{{ route('admin.project.update', $project->id) }}" method="POST">
@@ -18,7 +18,7 @@
         </div>
         <div class="mb-3">
             <label for="content" class="form-label">Content</label>
-            <input type="text" class="form-control @error('content') is-invalid @enderror" id="description" name="content" placeholder="Descrizone" value="{{$project->content }}">  
+            <textarea type="text" class="form-control @error('content') is-invalid @enderror" id="description" name="content" placeholder="Descrizone" value="{{$project->content }}"></textarea>  
         </div>
       
         

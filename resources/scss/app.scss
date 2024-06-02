@@ -27,7 +27,6 @@ $fa-font-path: "../webfonts" !default;
         width: 100%;
         height: calc(100% - 90px);
         display: flex;
-        
 
         #sidebar {
             width: 150px;
@@ -62,5 +61,13 @@ $fa-font-path: "../webfonts" !default;
 
 #tableIndex {
     height: calc(100vh - 90px);
-overflow-y: auto;
+    overflow-y: auto;
+}
+
+#showProject {
+    height: calc(100vh - 90px);
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+       display: none;
+    }
 }

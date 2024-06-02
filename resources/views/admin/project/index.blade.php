@@ -4,19 +4,23 @@
 
 @section('content')
 <div id="tableIndex">
-  <div class="d-flex justify-content-between align-items-center p-4 container">
+  <div class="d-flex justify-content-between align-items-center p-2 py-4 container">
     <h2>Table of projects</h2>
     <a class="btn btn-primary" href="{{route('admin.project.create')}}">Aggiungi</a>
   </div>
 
   <div class="container p-2">
-    <div class="container">
+  @if(session()->has('message'))
+    <div class="alert alert-danger">
+        {{ session()->get('message') }}
+    </div>
+    @endif
       <table class="table table-success table-striped">
         <thead>
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Title</th>
-            <th scope="col">Status</th>
+            <th scope="col">Image</th>
             <th scope="col">Create Date</th>
             <th scope="col">Update Date</th>
             <th scope="col">Actions</th>
@@ -29,7 +33,7 @@
         <tr>
         <th scope="row">{{$project->id}}</th>
         <td>{{$project->title}}</td>
-        <td>{{$project->status}}</td>
+        <td>{{$project->image}}</td>
         <td>{{$project->created_at}}</td>
         <td>{{$project->updated_at}}</td>
         <td>
@@ -52,6 +56,6 @@
         </tbody>
       </table>
     </div>
-  </div>
+
 </div>
 @endsection

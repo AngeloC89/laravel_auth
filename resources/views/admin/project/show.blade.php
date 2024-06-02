@@ -5,9 +5,9 @@
 
   <h1 class=" text-uppercase py-3 ">{{ $project->title }}</h1>
 
-  <div class="fs-3 py-4">{{ $project->content }}</div>
+  <img src="{{ $project->image }}" alt="">
 
-  <div class=" fs-3 py-4">Status: {{ $project->status }}</div>
+  <div class=" fs-3 py-4">Status: {{ $project->content }}</div>
 
   <div class="d-flex justify-content-start py-2">
     <button class="btn btn-primary h-25"><a class="text-decoration-none text-white" href="{{route('admin.project.edit', $project->id)}}">Modifica</a></button>
