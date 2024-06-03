@@ -17,10 +17,10 @@
         </div>
      
         <div class="mb-3">
-            <label for="status" class="form-label">Status</label>
-            <input type="text" class="form-control @error('status') is-invalid @enderror" id="status" name="status" value="{{old('status')}}" required>
+            <label for="image" class="form-label">Image</label>
+            <input type="text" class="form-control @error('image') is-invalid @enderror" id="image" name="image" value="{{old('image')}}" required>
        
-            @error('status')
+            @error('image')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>

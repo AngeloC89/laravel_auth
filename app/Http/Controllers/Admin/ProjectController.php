@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 
 use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Requests\StoreProjectRequest;
+use Illuminate\Support\Facades\DB;
 
 
 class ProjectController extends Controller
@@ -33,7 +35,10 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        //
+        $form_data = $request->validated();
+        $form_data['slug'] = Project::generateSlug($form_data['title']);
+        $new_project = Project::create($form_data);
+        return redirect()->route('admin.project.index')->with("message", "Il progetto $new_project->title e stato creato correttamente");
     }
 
     /**
@@ -41,7 +46,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        
+
         return view('admin.project.show', compact('project'));
     }
 
@@ -58,14 +63,17 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-       
-        $form_data = $request->validated();
 
-        $project->title = $form_data['title'];
-        $project->content = $form_data['content'];
-        $project->status = $form_data['status'];
-        $project->update();
-        return redirect()->route('admin.project.index', $project->slug);
+        $form_data = $request->all();
+        if ($project->title !== $form_data['title']) {
+            $form_data['slug'] = Project::generateSlug($form_data['title']);
+        }
+        //     DB::enableQueryLog();
+        $project->update($form_data);
+        //     $query = DB::getQueryLog();
+        //     dd($query);
+
+        return redirect()->route('admin.project.show' , $project->slug)->with('message', "The project $project->title has been updated");
 
     }
 
@@ -76,6 +84,6 @@ class ProjectController extends Controller
     {
         $project->delete();
         return redirect()->route("admin.project.index")->with('message', "The project $project->title has been deleted");
-   
+
     }
 }

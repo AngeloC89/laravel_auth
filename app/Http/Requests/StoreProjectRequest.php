@@ -24,7 +24,7 @@ class StoreProjectRequest extends FormRequest
         return [
             'title' =>  'required|max:200|min:5 ',
             'content' => 'required',
-            'status' => 'required|max:20'
+            'image' => 'required'
         ];
     }
 
@@ -35,9 +35,7 @@ class StoreProjectRequest extends FormRequest
         'titolo.min' => 'Inserisci 5 caratteri minimo.',
         'titolo.max'=> 'Il titolo non può avere più di 200 caratteri.',
         'content.required' => 'Inserisci un contenuto',
-        'status.required' => 'Inserisci uno stato',
-        'status.max' => 'Inserisci massimo 20 caratteri',
-
+        'image.required' => 'Inserisci un\'immagine',
 
         ];
     }

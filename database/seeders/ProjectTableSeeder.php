@@ -29,11 +29,11 @@ class ProjectTableSeeder extends Seeder
         foreach ($data as $index => $project) {
             if($index !== 0) {
 
-                $new_project = new project();
+                $new_project = new Project();
                 $new_project->title = $project[0];
                 $new_project->content = $project[1];
                 $new_project->image = $project[2];
-                $new_project->slug = Project::generateSlug($project[3]);
+                $new_project->slug = Project::generateSlug($new_project->title);
                 $new_project->save();
             }
         }
