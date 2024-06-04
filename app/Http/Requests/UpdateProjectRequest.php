@@ -34,7 +34,7 @@ class UpdateProjectRequest extends FormRequest
         ];
     }
 
-    public function message()
+    public function messages()
     {
         return [
         'title.required' => 'Inserisci il titolo.',

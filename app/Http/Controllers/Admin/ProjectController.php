@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 
 use App\Models\Project;
-use Illuminate\Http\Request;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Requests\StoreProjectRequest;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+
+//use Illuminate\Support\Facades\DB;
 
 
 class ProjectController extends Controller
@@ -37,6 +38,12 @@ class ProjectController extends Controller
     {
         $form_data = $request->validated();
         $form_data['slug'] = Project::generateSlug($form_data['title']);
+        if ($request->hasFile('image')) {
+            $path = Storage::put('project_image', $request->image);
+            $form_data['image'] = $path;
+        }
+
+
         $new_project = Project::create($form_data);
         return redirect()->route('admin.project.index')->with("message", "Il progetto $new_project->title e stato creato correttamente");
     }
@@ -64,7 +71,7 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
 
-        $form_data = $request->all();
+        $form_data = $request->validated();
         if ($project->title !== $form_data['title']) {
             $form_data['slug'] = Project::generateSlug($form_data['title']);
         }

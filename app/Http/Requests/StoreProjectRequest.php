@@ -22,20 +22,24 @@ class StoreProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' =>  'required|max:200|min:5 ',
+            'title' => [
+                'required',
+                'max:200',
+                'min:5 '
+            ],
             'content' => 'required',
             'image' => 'required'
         ];
     }
 
-    public function message()
+    public function messages()
     {
         return [
-        'title.required' => 'Inserisci il titolo.',
-        'titolo.min' => 'Inserisci 5 caratteri minimo.',
-        'titolo.max'=> 'Il titolo non può avere più di 200 caratteri.',
-        'content.required' => 'Inserisci un contenuto',
-        'image.required' => 'Inserisci un\'immagine',
+            'title.required' => 'Inserisci il titolo.',
+            'titolo.min' => 'Inserisci 5 caratteri minimo.',
+            'titolo.max' => 'Il titolo non può avere più di 200 caratteri.',
+            'content.required' => 'Inserisci un contenuto',
+            'image.required' => 'Inserisci un\'immagine',
 
         ];
     }

@@ -5,7 +5,7 @@
 
 <section class="container p-5">
 
-    <form action="{{ route('admin.project.update', $project->slug) }}" method="POST">
+    <form action="{{ route('admin.project.update', $project->slug) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="mb-3">
@@ -24,7 +24,7 @@
         
         <div class="mb-3">
             <label for="image" class="form-label">Image</label>
-            <input type="text" class="form-control @error('image') is-invalid @enderror" id="image" name="image" placeholder="Immagine" value="{{ old('image', $project->image) }}" >
+            <input type="file" accept="image/*" class="form-control @error('image') is-invalid @enderror" id="image" name="image" placeholder="Immagine" value="{{ old('image', $project->image) }}" >
    
             @error('image')
                 <div class="alert alert-danger">{{ $message }}</div>
