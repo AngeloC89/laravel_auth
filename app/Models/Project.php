@@ -17,7 +17,7 @@ class Project extends Model
         $count = 1;
         //itera nel campo slug per verificare se ne esiste uno uguale, se esiste modifica iln titolo... 
         while(Project::where('slug', $slug)->first()){
-            $slug = Str::of($title)->slug('-') . " -{$count}";
+            $slug = Str::of($title)->slug('-') . " - {$count}";
             $count++;
         }
         return $slug;

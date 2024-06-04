@@ -73,7 +73,7 @@ class ProjectController extends Controller
         //     $query = DB::getQueryLog();
         //     dd($query);
 
-        return redirect()->route('admin.project.show' , $project->slug)->with('message', "The project $project->title has been updated");
+        return redirect()->route('admin.project.show', $project->slug)->with('message', "The project $project->title has been updated");
 
     }
 

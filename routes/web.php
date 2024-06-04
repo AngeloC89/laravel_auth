@@ -22,7 +22,7 @@ Route::get('/',[HomeController::class, 'index'])->name('home');
 
 Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-    Route::resource('/project', ProjectController::class);
+    Route::resource('/project', ProjectController::class)->parameters(['project' => 'project:slug']);
 //...
 });
 

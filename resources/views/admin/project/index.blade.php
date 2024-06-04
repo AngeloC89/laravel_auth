@@ -37,13 +37,13 @@
         <td>{{$project->created_at}}</td>
         <td>{{$project->updated_at}}</td>
         <td>
-          <div class="d-flex gap-2 p-4"> <a href="{{ route('admin.project.show', $project->id) }}"
+          <div class="d-flex gap-2 p-4"> <a href="{{ route('admin.project.show', $project->slug) }}"
             class="btn btn-primary"> <i class="fa-solid fa-eye"></i></a>
 
-          <a href="{{ route('admin.project.edit', $project->id) }}" class="btn btn-warning"> <i
+          <a href="{{ route('admin.project.edit', $project->slug) }}" class="btn btn-warning"> <i
             class="fa-solid fa-pen-to-square"></i></a>
 
-          <form action="{{ route('admin.project.destroy', $project->id) }}" method="POST">
+          <form action="{{ route('admin.project.destroy', $project->slug) }}" method="POST">
             @csrf
             @method('DELETE')
             <button  type="submit" value="&#10060 " class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>

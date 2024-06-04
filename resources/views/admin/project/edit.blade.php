@@ -18,13 +18,13 @@
         </div>
         <div class="mb-3">
             <label for="content" class="form-label">Content</label>
-            <textarea type="text" class="form-control @error('content') is-invalid @enderror" id="description" name="content" placeholder="Descrizone" value="{{old('content',$project->content) }}"></textarea>  
+            <textarea type="text" class="form-control @error('content') is-invalid @enderror" id="description" name="content" placeholder="Descrizone" value="{{old('content', $project->content)}}" required>{{ old('content', $project->content) }}"></textarea>  
         </div>
       
         
         <div class="mb-3">
             <label for="image" class="form-label">Image</label>
-            <input type="text" class="form-control @error('image') is-invalid @enderror" id="image" name="image" placeholder="Immagine" value="{{ old('image',$project->status) }}" >
+            <input type="text" class="form-control @error('image') is-invalid @enderror" id="image" name="image" placeholder="Immagine" value="{{ old('image', $project->image) }}" >
    
             @error('image')
                 <div class="alert alert-danger">{{ $message }}</div>

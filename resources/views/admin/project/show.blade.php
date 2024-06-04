@@ -10,9 +10,9 @@
   <div class=" fs-3 py-4">Status: {{ $project->content }}</div>
 
   <div class="d-flex justify-content-start py-2">
-    <button class="btn btn-primary h-25"><a class="text-decoration-none text-white" href="{{route('admin.project.edit', $project->id)}}">Modifica</a></button>
+    <button class="btn btn-primary h-25"><a class="text-decoration-none text-white" href="{{route('admin.project.edit', $project->slug)}}">Modifica</a></button>
 
-    <form action="{{ route('admin.project.destroy', $project->id) }}" method="POST">
+    <form action="{{ route('admin.project.destroy', $project->slug) }}" method="POST">
       @csrf
       @method('DELETE')
       <input id="deleteProject" type="submit" value="Elimina" class="btn btn-danger ms-3">
