@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreProjectRequest extends FormRequest
 {
@@ -25,7 +26,9 @@ class StoreProjectRequest extends FormRequest
             'title' => [
                 'required',
                 'max:200',
-                'min:5 '
+                'min:5 ',
+             
+                
             ],
             'content' => 'required',
             'image' => 'required'

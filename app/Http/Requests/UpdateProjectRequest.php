@@ -27,10 +27,10 @@ class UpdateProjectRequest extends FormRequest
                 'required',
                 'min:5',
                 'max:200',
-                Rule::unique('projects')->ignore($this->project->slug),
+                Rule::unique('projects')->ignore($this->project->id),
             ],
             'content' => 'required',
-            'image' => 'required'
+            'image' => 'image'
         ];
     }
 

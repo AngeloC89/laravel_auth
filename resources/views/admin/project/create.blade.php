@@ -19,8 +19,8 @@
         </div>
      
         <div class="mb-3">
-            <label for="image" class="form-label">Image</label>
-            <input type="file" accept="image/*" class="form-control @error('image') is-invalid @enderror" id="image" name="image" value="{{old('image')}}" required>
+            <img id="upload_preview" width="100" src="/images/placeholder.jpeg" alt="" class="mb-2">
+            <input type="file" accept="image/*" class="form-control @error('image') is-invalid @enderror" id="uploadImage" name="image" value="{{old('image')}}" required>
        
             @error('image')
                 <div class="alert alert-danger">{{ $message }}</div>

@@ -23,13 +23,19 @@
       
         
         <div class="mb-3">
-            <label for="image" class="form-label">Image</label>
-            <input type="file" accept="image/*" class="form-control @error('image') is-invalid @enderror" id="image" name="image" placeholder="Immagine" value="{{ old('image', $project->image) }}" >
-   
-            @error('image')
-                <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-        </div>
+    <label for="image" class="form-label">Image</label>
+    <div class="">
+        <input type="file" accept="image/*" class="form-control @error('image') is-invalid @enderror w-100" id="uploadImage" name="image" value="{{ old('image', $project->image) }}">
+
+        @if ($project->image)
+            <span class="m-3 text-muted">Current Image: <img id="upload_preview" class="w-25 my-3" src="/images/placeholder.jpeg" alt=""></span>
+        @endif
+    </div>
+
+    @error('image')
+        <div class="alert alert-danger">{{ $message }}</div>
+    @enderror
+</div>
         
         <button class="btn btn-primary" type="submit">Modifica</button>
     </form>

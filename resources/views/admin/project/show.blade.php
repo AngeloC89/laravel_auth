@@ -11,7 +11,7 @@
 
   <h1 class=" text-uppercase py-3 ">{{ $project->title }}</h1>
 
-  <img src="{{asset('storage/' . $project->image ?? '') }}" alt="">
+  <img class="w-25" src="{{asset('storage/' . $project->image ?? '') }}" alt="">
 
   <div class=" fs-3 py-4">Status: {{ $project->content }}</div>
 

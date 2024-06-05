@@ -74,6 +74,11 @@ class ProjectController extends Controller
         $form_data = $request->validated();
         if ($project->title !== $form_data['title']) {
             $form_data['slug'] = Project::generateSlug($form_data['title']);
+            
+        }
+        if ($request->hasFile('image')) {
+            $path = Storage::put('project_image', $request->image);
+            $form_data['image'] = $path;
         }
         //     DB::enableQueryLog();
         $project->update($form_data);
